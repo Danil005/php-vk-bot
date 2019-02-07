@@ -49,7 +49,18 @@ trait CommandList
  ```
  Тогда при вызове _hello или hello, метод выполняться не будет.
 Если хотите сделать реакцию на предложения, то создайте метод **cList()** в CommandList.
+```
+protected function cList()  
+{  
+	  return [  
+		 [
+		   'text'=>'te',  
+		   'method' => '_hello'  
+		 ],  
+	  ];
+}
+ ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzc3ODUyNjU2LC04OTgyNzEyNDYsLTUxMz
-Y5NjA0OCwtNzkwODkxNTAxLC0xMzk4MzUyNjldfQ==
+eyJoaXN0b3J5IjpbMTExMzc0MTgwNSwtODk4MjcxMjQ2LC01MT
+M2OTYwNDgsLTc5MDg5MTUwMSwtMTM5ODM1MjY5XX0=
 -->
