@@ -47,7 +47,8 @@ trait CommandList
 }
  ```
  Тогда при вызове _hello или hello, метод выполняться не будет.
+ 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg5ODI3MTI0NiwtNTEzNjk2MDQ4LC03OT
-A4OTE1MDEsLTEzOTgzNTI2OV19
+eyJoaXN0b3J5IjpbLTE3MDY4NDUwMzYsLTg5ODI3MTI0NiwtNT
+EzNjk2MDQ4LC03OTA4OTE1MDEsLTEzOTgzNTI2OV19
 -->
