@@ -54,13 +54,14 @@ protected function cList()
 {  
 	  return [  
 		 [
-		   'text'=>'te',  
+		   'text'=>'text message',  
 		   'method' => '_hello'  
 		 ],  
 	  ];
 }
  ```
+ Обязательно создавать методы с использование нижнего подчеркивания, иначе этот метод можно будет вызывать.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTExMzc0MTgwNSwtODk4MjcxMjQ2LC01MT
-M2OTYwNDgsLTc5MDg5MTUwMSwtMTM5ODM1MjY5XX0=
+eyJoaXN0b3J5IjpbMTg3MDA5Mjc2LC04OTgyNzEyNDYsLTUxMz
+Y5NjA0OCwtNzkwODkxNTAxLC0xMzk4MzUyNjldfQ==
 -->
