@@ -36,7 +36,8 @@ trait CommandList
 }
  ```
  Теперь, если написать "hello" в чат, бот вам ответит: "Hello!".
- Если вы хотите, чтобы бот реагировал по-другому, когда 
+ 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc5MDg5MTUwMSwtMTM5ODM1MjY5XX0=
+eyJoaXN0b3J5IjpbLTUxMzY5NjA0OCwtNzkwODkxNTAxLC0xMz
+k4MzUyNjldfQ==
 -->
