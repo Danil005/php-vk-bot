@@ -41,10 +41,10 @@ trait CommandList
  ```
 trait CommandList  
 {  
-	protected function _hello()  
-	{  
-		$this->sendMessage('Hello!');  
-	}
+    protected function _hello()  
+    {  
+         $this->sendMessage('Hello!');  
+    }
 }
  ```
  Тогда при вызове _hello или hello, метод выполняться не будет.
@@ -52,11 +52,11 @@ trait CommandList
 ```
 protected function cList()  
 {  
-	return [  
-		[
-			'text'=>'text message',  
-			'method' => '_hello'  
-		],  
+    return [  
+        [
+            'text'=>'text message',  
+            'method' => '_hello'  
+        ],  
 	];
 }
  ```
@@ -69,6 +69,6 @@ protected function cList()
 |method|Метод из CommandList. **Обязательно использовать: _**
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU1NzA2OTA5MCwtODk4MjcxMjQ2LC01MT
+eyJoaXN0b3J5IjpbMTAwMTU3NTc4NCwtODk4MjcxMjQ2LC01MT
 M2OTYwNDgsLTc5MDg5MTUwMSwtMTM5ODM1MjY5XX0=
 -->
