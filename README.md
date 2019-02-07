@@ -36,8 +36,18 @@ trait CommandList
 }
  ```
  Теперь, если написать "hello" в чат, бот вам ответит: "Hello!".
- 
+ Если не хотите, чтобы метод вызывался при вводе ключевого слова, сделайте таким образом:
+ ```
+trait CommandList  
+{  
+	protected function _hello()  
+    {  
+	  $this->sendMessage('Hello!');  
+	}
+}
+ ```
+ Тогда при вызове _hello или hello, метод выполняться не будет.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUxMzY5NjA0OCwtNzkwODkxNTAxLC0xMz
-k4MzUyNjldfQ==
+eyJoaXN0b3J5IjpbLTg5ODI3MTI0NiwtNTEzNjk2MDQ4LC03OT
+A4OTE1MDEsLTEzOTgzNTI2OV19
 -->
