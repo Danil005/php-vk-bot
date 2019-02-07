@@ -29,10 +29,12 @@ composer require danil005/php-vk-bot:dev-master
 ```
 trait CommandList  
 {  
-  protected function hello()  
- {  $this->sendMessage('Hello!');  
-}}
+	protected function hello()  
+    {  
+	  $this->sendMessage('Hello!');  
+	}
+}
  ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTMyMTk5NjU1XX0=
+eyJoaXN0b3J5IjpbMTQ3MjgyNzk0NV19
 -->
