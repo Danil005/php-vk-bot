@@ -25,6 +25,7 @@ composer require danil005/php-vk-bot:dev-master
  ```
 
 ## Обработка команд
+### Базовые настройки
 Для того, чтобы обработать команды, вам необходимо зайти в папку traits и открыть файл **CommantList.php**.  Создание каждого метода - это и есть команда. Также необходимо создавать методы только строчными буквами.
 ```
 trait CommandList  
@@ -47,8 +48,8 @@ trait CommandList
 }
  ```
  Тогда при вызове _hello или hello, метод выполняться не будет.
- 
+Если хотите сделать реакцию на предложения, то создайте метод **cList()** в CommandList.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MDY4NDUwMzYsLTg5ODI3MTI0NiwtNT
-EzNjk2MDQ4LC03OTA4OTE1MDEsLTEzOTgzNTI2OV19
+eyJoaXN0b3J5IjpbMzc3ODUyNjU2LC04OTgyNzEyNDYsLTUxMz
+Y5NjA0OCwtNzkwODkxNTAxLC0xMzk4MzUyNjldfQ==
 -->
