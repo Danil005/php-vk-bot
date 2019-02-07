@@ -31,8 +31,8 @@ composer require danil005/php-vk-bot:dev-master
 trait CommandList  
 {  
 	protected function hello()  
-    {  
-	  $this->sendMessage('Hello!');  
+	{  
+		$this->sendMessage('Hello!');  
 	}
 }
  ```
@@ -42,8 +42,8 @@ trait CommandList
 trait CommandList  
 {  
 	protected function _hello()  
-    {  
-	  $this->sendMessage('Hello!');  
+	{  
+		$this->sendMessage('Hello!');  
 	}
 }
  ```
@@ -52,12 +52,12 @@ trait CommandList
 ```
 protected function cList()  
 {  
-	  return [  
-		 [
-		   'text'=>'text message',  
-		   'method' => '_hello'  
-		 ],  
-	  ];
+	return [  
+		[
+			'text'=>'text message',  
+			'method' => '_hello'  
+		],  
+	];
 }
  ```
  Обязательно создавать методы с использование нижнего подчеркивания, иначе этот метод можно будет вызывать.
@@ -69,6 +69,6 @@ protected function cList()
 |method|Метод из CommandList. **Обязательно использовать: _**
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU5NDAyMzkzNCwtODk4MjcxMjQ2LC01MT
+eyJoaXN0b3J5IjpbMTU1NzA2OTA5MCwtODk4MjcxMjQ2LC01MT
 M2OTYwNDgsLTc5MDg5MTUwMSwtMTM5ODM1MjY5XX0=
 -->
