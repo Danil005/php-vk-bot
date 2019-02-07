@@ -25,7 +25,14 @@ composer require danil005/php-vk-bot:dev-master
  ```
 
 ## Обработка команд
-Для того, что о
+Для того, чтобы обработать команды, вам необходимо зайти в папку traits и открыть файл **CommantList.php**.  Создание каждого метода - это и есть команда.
+```
+trait CommandList  
+{  
+  protected function hello()  
+ {  $this->sendMessage('Hello!');  
+}}
+ ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjc5NjY0MTUzXX0=
+eyJoaXN0b3J5IjpbNTMyMTk5NjU1XX0=
 -->
