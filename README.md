@@ -67,8 +67,3 @@ protected function cList()
 |--|--|
 |text|Сообщение на которое будет реагировать бот.|
 |method|Метод из CommandList. **Обязательно использовать: _**
-
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI3MzYzNDI0MCwtODk4MjcxMjQ2LC01MT
-M2OTYwNDgsLTc5MDg5MTUwMSwtMTM5ODM1MjY5XX0=
--->
