@@ -61,7 +61,14 @@ protected function cList()
 }
  ```
  Обязательно создавать методы с использование нижнего подчеркивания, иначе этот метод можно будет вызывать.
+ Массив состоящий из вложенного массива создает команду.
+ 
+|Ключ|Значение  |
+|--|--|
+|text|Сообщение на которое будет реагировать бот.|
+|metho|
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg3MDA5Mjc2LC04OTgyNzEyNDYsLTUxMz
+eyJoaXN0b3J5IjpbMzExMDYyMzAyLC04OTgyNzEyNDYsLTUxMz
 Y5NjA0OCwtNzkwODkxNTAxLC0xMzk4MzUyNjldfQ==
 -->
