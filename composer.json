@@ -7,7 +7,8 @@
         }
     ],
     "require": {
-        "php": ">=7.0"
+        "php": ">=7.0",
+        "vkcom/vk-php-sdk": "dev-master"
     },
     "minimum-stability": "dev",
     "autoload": {
