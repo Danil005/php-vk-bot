@@ -4,10 +4,18 @@ namespace VkBot\traits;
 
 trait CommandList
 {
-    protected function hello()
+    protected function cList()
     {
-        $this->sendMessage('Hello!');
+        return [
+            [
+                'text'=>['привет', 'дарова'],
+                'method' => '_hello'
+            ],
+        ];
     }
 
-
+    protected function _hello()
+    {
+        $this->sendMessage(['Hello!', 'HI!']);
+    }
 }

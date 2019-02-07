@@ -16,11 +16,15 @@ use VK\Exceptions\Api\VKApiMessagesUserBlockedException;
 use VK\Exceptions\VKApiException;
 use VK\Exceptions\VKClientException;
 use VkBot\traits\ChatEventsList;
+use VkBot\traits\CommandController;
 use VkBot\traits\CommandList;
+use VkBot\traits\Utils;
 
 class Core extends VKCallbackApiServerHandler
 {
+    use Utils;
     use ChatEventsList;
+    use CommandController;
     use CommandList;
 
     protected $_config;
@@ -28,6 +32,7 @@ class Core extends VKCallbackApiServerHandler
     protected $_fromUser;
     protected $_actionUser;
     protected $_object;
+    protected $_text;
 
     /**
      * Core constructor.
@@ -72,7 +77,12 @@ class Core extends VKCallbackApiServerHandler
             $this->handleAction($object);
         }
         $text = mb_strtolower(trim($object['text']));
-        $this->$text();
+        $this->_text = $text;
+        if(method_exists($this, $text) && strpos($text, '_') === false) {
+            $this->$text();
+        } else {
+            $this->commandExecute();
+        }
         $this->end();
     }
 
@@ -148,7 +158,7 @@ class Core extends VKCallbackApiServerHandler
     /**
      * Отправить сообщение пользователю.
      * @param int $peerId
-     * @param string $message
+     * @param $message
      * @throws VKApiException
      * @throws VKApiMessagesChatBotFeatureException
      * @throws VKApiMessagesChatUserNoAccessException
@@ -161,8 +171,9 @@ class Core extends VKCallbackApiServerHandler
      * @throws VKApiMessagesUserBlockedException
      * @throws VKClientException
      */
-    public function sendMessage(string $message, int $peerId = null): void
+    public function sendMessage($message, int $peerId = null): void
     {
+        $message = (is_array($message)) ? $message[rand(0, count($message)-1)] : $message;
         $this->_vk->messages()->send($this->_config['access_token'], [
             'peer_id' => ( $peerId == null ) ? $this->_object['peer_id'] : $peerId,
             'message' => $message,
