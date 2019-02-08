@@ -15,14 +15,18 @@ use VK\Exceptions\Api\VKApiMessagesTooLongMessageException;
 use VK\Exceptions\Api\VKApiMessagesUserBlockedException;
 use VK\Exceptions\VKApiException;
 use VK\Exceptions\VKClientException;
+use VkBot\traits\Chat;
 use VkBot\traits\ChatEventsList;
 use VkBot\traits\CommandController;
 use VkBot\traits\CommandList;
+use VkBot\traits\Media;
 use VkBot\traits\Utils;
 
 class Core extends VKCallbackApiServerHandler
 {
     use Utils;
+    use Media;
+    use Chat;
     use ChatEventsList;
     use CommandController;
     use CommandList;
@@ -33,6 +37,13 @@ class Core extends VKCallbackApiServerHandler
     protected $_actionUser;
     protected $_object;
     protected $_text;
+    protected $_attachments;
+
+
+    protected $_chatMembers;
+    protected $_chatMembersIds;
+    protected $_chatAdmins;
+    protected $_chatAdminsIds;
 
     /**
      * Core constructor.
@@ -78,7 +89,7 @@ class Core extends VKCallbackApiServerHandler
         }
         $text = mb_strtolower(trim($object['text']));
         $this->_text = $text;
-        if(method_exists($this, $text) && strpos($text, '_') === false) {
+        if (method_exists($this, $text) && strpos($text, '_') === false) {
             $this->$text();
         } else {
             $this->commandExecute();
@@ -173,11 +184,27 @@ class Core extends VKCallbackApiServerHandler
      */
     public function sendMessage($message, int $peerId = null): void
     {
-        $message = (is_array($message)) ? $message[rand(0, count($message)-1)] : $message;
-        $this->_vk->messages()->send($this->_config['access_token'], [
-            'peer_id' => ( $peerId == null ) ? $this->_object['peer_id'] : $peerId,
+        $message = (is_array($message)) ? $message[rand(0, count($message) - 1)] : $message;
+        $config = [
+            'peer_id' => ($peerId == null) ? $this->_object['peer_id'] : $peerId,
             'message' => $message,
-        ]);
+        ];
+
+        if ($this->_attachments != null) {
+            $config['attachment'] = (is_array($this->_attachments))
+                ? implode(',', $this->_attachments) : $this->_attachments;
+        }
+        $this->_vk->messages()->send($this->_config['access_token'], $config);
+    }
+
+    /**
+     * Добавить вложения.
+     * @param $attachment
+     * @return mixed
+     */
+    public function attachments($attachment)
+    {
+        return $this->_attachments = $attachment;
     }
 
     public function end()

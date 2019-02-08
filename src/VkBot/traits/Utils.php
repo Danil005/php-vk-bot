@@ -4,6 +4,8 @@ namespace VkBot\traits;
 
 trait Utils
 {
+
+
     public function translitIt($str)
     {
         $tr = array(
@@ -114,4 +116,59 @@ trait Utils
 
         return stripos($textFromBot, $text1) !== false;
     }
+
+    /**
+     * Загрузить информацию о чате.
+     * @param int $chatId
+     */
+    protected function loadChatMembers(int $chatId): void
+    {
+        $members = $this->_vk->messages()->getConversationMembers(
+            $this->_config['access_token'],
+            ['peer_id' => $chatId]
+        );
+
+        $adminItems = array_filter($members['items'], function ($item) {
+            return !empty($item['is_admin']);
+        });
+        $adminsIds = array_map(
+            function ($item) {
+                return $item['member_id'];
+            },
+            $adminItems
+        );
+        $count = 0;
+        $admins = [
+            'items' => $adminItems,
+        ];
+        if (!empty($members['profiles'])) {
+            foreach ($members['profiles'] as $group) {
+                if (in_array($group['id'], $adminsIds)) {
+                    $count++;
+                    $admins['profiles'][] = $group;
+                }
+            }
+        }
+        if (!empty($members['groups'])) {
+            foreach ($members['groups'] as $group) {
+                if (in_array(-$group['id'], $adminsIds)) {
+                    $count++;
+                    $admins['groups'][] = $group;
+                }
+            }
+        }
+        $admins['count'] = $count;
+        $members_ids = array_map(
+            function ($item) {
+                return $item['member_id'];
+            },
+            $members['items']
+        );
+
+        $this->_chatMembers[$chatId] = $members;
+        $this->_chatMembersIds[$chatId] = $members_ids;
+        $this->_chatAdmins[$chatId] = $admins;
+        $this->_chatAdminsIds[$chatId] = $adminsIds;
+    }
+
 }

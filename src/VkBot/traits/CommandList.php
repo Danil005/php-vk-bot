@@ -8,7 +8,7 @@ trait CommandList
     {
         return [
             [
-                'text'=>['привет', 'дарова'],
+                'text' => ['привет', 'дарова'],
                 'method' => '_hello'
             ],
         ];
@@ -16,6 +16,6 @@ trait CommandList
 
     protected function _hello()
     {
-        $this->sendMessage(['Hello!', 'HI!']);
+
     }
 }

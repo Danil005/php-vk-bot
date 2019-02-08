@@ -8,9 +8,12 @@
     ],
     "require": {
         "php": ">=7.0",
-        "vkcom/vk-php-sdk": "dev-master"
+        "vkcom/vk-php-sdk": "dev-master",
+      "ext-json": "*",
+      "ext-mbstring": "*"
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
+    "version": "1.0",
     "autoload": {
         "psr-0": {
             "VkBot": "src/"
