@@ -3,7 +3,8 @@ php:
 - 7.1
 
 before_script:
+  - composer require atoum/atou
   - composer install --no-interaction
 
 script:
-  - vendor/bin/phpunit
+  - vendor/bin/atoum
