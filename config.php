@@ -4,9 +4,9 @@ error_reporting(E_ALL);
 
 return [
     'api_version' => '5.92',
-    'group_id' => '175343153',
-    'confirm_string' => 'a072ca22',
-    'secret_key' => '124uf09jafsfa',
-    'access_token' => '87b5693e41d297bbddd21f3574fb3c263e6496addda1c6bf04adbb57ea2540e509a7f5edf3a1e26930943',
+    'group_id' => '170365985',
+    'confirm_string' => 'b1a3e55a',
+    'secret_key' => 'fasfafiajnofia198491749817489jhf0o',
+    'access_token' => '6e816947e2018beb4e01a62c67bb960b6e41d8598402889652553e72a5e7f77c6be859003816256a30218',
     'similar_percent' => 75, //Процент срабатывания "похоже на"
 ];

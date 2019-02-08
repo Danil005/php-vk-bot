@@ -8,14 +8,14 @@ trait CommandList
     {
         return [
             [
-                'text' => ['привет', 'дарова'],
-                'method' => '_hello'
+                'text' => 'опа',
+                'method' => '_opa'
             ],
         ];
     }
 
-    protected function _hello()
+    protected function _opa()
     {
-
+        $this->sendPhoto('170365985_456239031');
     }
 }
