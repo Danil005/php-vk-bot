@@ -26,14 +26,15 @@ ___
         - [Дополнение](#3225-дополнение)
       + [Исполнение нескольких методов](#323-исполнение-нескольких-методов)
 4. [Методы](#4-методы)
-    + [sendMessage (Отправить сообщение)](#) 
-    + [attachments (Вложения)](#)
-    + [sendPhoto (Отправить фотографию)](#)
-    + [sendVideo (Отправить видео)](#)
-    + [sendDoc (Отправить документ)](#)
-    + [sendWall (Отправить запись со стены)](#)
-    + [sendPoll (Отправить опрос)](#)
-    + [sendMarket (Отправить товар)](#)
+    + [sendMessage (Отправить сообщение)](#41-sendmessagearraystring-message-int-peerid--null-void) 
+    + [attachments (Вложения)](#42--attachmentsarraystring-attachments-arraystring)
+    + [sendPhoto (Отправить фотографию)](#43-sendphotoarrraystring-photos-int-peerid--nullvoid)
+    + [sendVideo (Отправить видео)](#44-sendvideoarrraystring-videos-int-peerid--nullvoid)
+    + [sendDoc (Отправить документ)](#45-senddocarrraystring-docs-int-peerid--nullvoid)
+    + [sendAudio (Отправить аудиозапись)](#46-sendaudioarrraystring-audio-int-peerid--nullvoid)
+    + [sendWall (Отправить запись со стены)](#47-sendwallarrraystring-walls-int-peerid--nullvoid)
+    + [sendPoll (Отправить опрос)](#48-sendpollarrraystring-polls-int-peerid--nullvoid)
+    + [sendMarket (Отправить товар)](#49-sendmarketarrraystring-items-int-peerid--nullvoid)
 ___
 ## TODO
 |Дата|Описание релиза |Состояние 
