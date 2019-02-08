@@ -3,7 +3,7 @@ php:
 - 7.1
 
 before_script:
-  - composer require atoum/atou
+  - composer require atoum/atoum
   - composer install --no-interaction
 
 script:
