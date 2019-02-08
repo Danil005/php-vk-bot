@@ -14,7 +14,7 @@ trait CommandList
         ];
     }
 
-    protected function _opa()
+    protected function opa()
     {
         $this->sendPhoto('170365985_456239031');
     }
