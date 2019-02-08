@@ -4,6 +4,8 @@
 
 #  PHP-VK-BOT
 
+[![Build Status](https://travis-ci.org/Danil005/php-vk-bot.svg?branch=master)](https://travis-ci.org/Danil005/php-vk-bot)
+
 Библиотека для работы с VK-ботами.
 Поддерживается работа в беседах.
 
