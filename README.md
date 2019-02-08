@@ -26,8 +26,8 @@ ___
         - [Дополнение](#3225-дополнение)
       + [Исполнение нескольких методов](#323-исполнение-нескольких-методов)
 4. [Методы](#4-методы)
-    + [sendMessage (Отправить сообщение)](#41-sendmessagearraystring-message-int-peerid--null-void) 
-    + [attachments (Вложения)](#42--attachmentsarraystring-attachments-arraystring)
+    + [attachments (Вложения)](#41--attachmentsarraystring-attachments-arraystring)
+    + [sendMessage (Отправить сообщение)](#42-sendmessagearraystring-message-int-peerid--null-void) 
     + [sendPhoto (Отправить фотографию)](#43-sendphotoarrraystring-photos-int-peerid--nullvoid)
     + [sendVideo (Отправить видео)](#44-sendvideoarrraystring-videos-int-peerid--nullvoid)
     + [sendDoc (Отправить документ)](#45-senddocarrraystring-docs-int-peerid--nullvoid)
@@ -146,22 +146,7 @@ protected function cList()
 ```
 
 ## 4. Методы
-### 4.1. sendMessage(array|string $message, int $peerId = null): void
-Отправка сообщения пользователю/в беседу.
-
-
-|Аргумент|Тип данных|Описание|По умолчанию|
-|--|--|--|--|
-|$message|array\|string|Сообщение или массив сообщений, которые будут выбраны генератором случайных чисел.|обязательно
-|$perrId|int|ID-пользователя/чата.|null 
-
-Пример:
-```
-$this->sendMessage(['Hi', 'Hello!']);
-//Result: Hi
-```
-___
-### 4.2.  attachments(array|string $attachments): array|string
+### 4.1.  attachments(array|string $attachments): array|string
 Добавить вложения для сообщения. Указывать **ДО** вызова метода sendMessage()
 
 |Аргумент|Тип данных|Описание|По умолчанию|
@@ -192,6 +177,22 @@ protected function _hello()
 |market|Товар|
 
 Подробнее на официальном сайте [VK.COM (messages.send)](https://vk.com/dev/messages.send).
+
+___
+### 4.2. sendMessage(array|string $message, int $peerId = null): void
+Отправка сообщения пользователю/в беседу.
+
+
+|Аргумент|Тип данных|Описание|По умолчанию|
+|--|--|--|--|
+|$message|array\|string|Сообщение или массив сообщений, которые будут выбраны генератором случайных чисел.|обязательно
+|$perrId|int|ID-пользователя/чата.|null 
+
+Пример:
+```
+$this->sendMessage(['Hi', 'Hello!']);
+//Result: Hi
+```
 
 ___
 ### 4.3. sendPhoto(arrray|string $photos, int $peerId = null):void
