@@ -1,6 +1,7 @@
 
 
 
+
 #  PHP-VK-BOT
 
 Библиотека для работы с VK-ботами.
@@ -24,7 +25,16 @@ ___
         - [Содержит](#3224-содержит)
         - [Дополнение](#3225-дополнение)
       + [Исполнение нескольких методов](#323-исполнение-нескольких-методов)
-4. [Методы](#4-методы)     
+4. [Методы](#4-методы)
+    + [attachments (Вложения)](#41--attachmentsarraystring-attachments-arraystring)
+    + [sendMessage (Отправить сообщение)](#42-sendmessagearraystring-message-int-peerid--null-void) 
+    + [sendPhoto (Отправить фотографию)](#43-sendphotoarrraystring-photos-int-peerid--nullvoid)
+    + [sendVideo (Отправить видео)](#44-sendvideoarrraystring-videos-int-peerid--nullvoid)
+    + [sendDoc (Отправить документ)](#45-senddocarrraystring-docs-int-peerid--nullvoid)
+    + [sendAudio (Отправить аудиозапись)](#46-sendaudioarrraystring-audio-int-peerid--nullvoid)
+    + [sendWall (Отправить запись со стены)](#47-sendwallarrraystring-walls-int-peerid--nullvoid)
+    + [sendPoll (Отправить опрос)](#48-sendpollarrraystring-polls-int-peerid--nullvoid)
+    + [sendMarket (Отправить товар)](#49-sendmarketarrraystring-items-int-peerid--nullvoid)
 ___
 ## TODO
 |Дата|Описание релиза |Состояние 
@@ -136,7 +146,40 @@ protected function cList()
 ```
 
 ## 4. Методы
-### 4.1. sendMessage(array|string $message, int $peerId = null): void
+### 4.1.  attachments(array|string $attachments): array|string
+Добавить вложения для сообщения. Указывать **ДО** вызова метода sendMessage()
+
+|Аргумент|Тип данных|Описание|По умолчанию|
+|--|--|--|--|
+|$attachments|array\|string|Ссылка на медиавложения или массив|обязательно
+
+Пример:
+```
+protected function _hello()  
+{  
+  $this->attachments('photo-100172_166443618');
+  //$this->attachments(['photo-100172_166443618', 'photo-124172_166443618'])
+  $this->sendMessage(['Hello!', 'HI!']);  
+}
+```
+**Если указать два и более подряд идущих методов attachments, то будет использоваться последний.**
+
+Типы медиавложения:
+
+|Тип|Описание|
+|--|--|
+|photo|Фотографии|
+|video|Видео|
+|audio|Аудио|
+|doc|Документ|
+|wall|Запись на стене|
+|poll|Опрос|
+|market|Товар|
+
+Подробнее на официальном сайте [VK.COM (messages.send)](https://vk.com/dev/messages.send).
+
+___
+### 4.2. sendMessage(array|string $message, int $peerId = null): void
 Отправка сообщения пользователю/в беседу.
 
 
@@ -150,3 +193,119 @@ protected function cList()
 $this->sendMessage(['Hi', 'Hello!']);
 //Result: Hi
 ```
+
+___
+### 4.3. sendPhoto(arrray|string $photos, int $peerId = null):void
+Отправить фотографию, не используя метод attachments. Указывайте **<owner_id>_<media_id>**.
+
+Тип фотографию(и) будет по умолчанию photo. То есть photo-**100172_166443618**, то вам нужно вставить лишь выделенную часть.
+
+|Аргумент|Тип данных|Описание|По умолчанию|
+|--|--|--|--|
+|$photos|array\|string|Ссылка на фотографию или массив|обязательно
+
+
+Пример:
+
+```
+$this->sendPhoto('175343153_456239018');
+```
+
+___
+### 4.4. sendVideo(arrray|string $videos, int $peerId = null):void
+
+Отправить видео, не используя метод attachments. По тому же правилу, что и sendPhoto.
+
+|Аргумент|Тип данных|Описание|По умолчанию|
+|--|--|--|--|
+|$videos|array\|string|Ссылка на видео или массив|обязательно
+
+
+Пример:
+
+```
+$this->sendVideo('175343153_456239018');
+```
+
+___
+### 4.5. sendDoc(arrray|string $docs, int $peerId = null):void
+
+Отправить документ(ы), не используя метод attachments. По тому же правилу, что и sendPhoto.
+
+|Аргумент|Тип данных|Описание|По умолчанию|
+|--|--|--|--|
+|$docs|array\|string|Ссылка на документ или массив|обязательно
+
+
+Пример:
+
+```
+$this->sendDoc('175343153_456239018');
+```
+
+
+___
+### 4.6. sendAudio(arrray|string $audio, int $peerId = null):void
+
+Отправить аудио, не используя метод attachments. По тому же правилу, что и sendPhoto.
+
+|Аргумент|Тип данных|Описание|По умолчанию|
+|--|--|--|--|
+|$audio|array\|string|Ссылка на аудио или массив|обязательно
+
+
+Пример:
+
+```
+$this->sendAudio('175343153_456239018');
+```
+
+
+___
+### 4.7. sendWall(arrray|string $walls, int $peerId = null):void
+
+Отправить запись(и) со стен(ы), не используя метод attachments. По тому же правилу, что и sendPhoto.
+
+|Аргумент|Тип данных|Описание|По умолчанию|
+|--|--|--|--|
+|$walls|array\|string|Ссылка на запись со стены или массив|обязательно
+
+
+Пример:
+
+```
+$this->sendWall('175343153_456239018');
+```
+
+___
+### 4.8. sendPoll(arrray|string $polls, int $peerId = null):void
+
+Отправить опрос(ы), не используя метод attachments. По тому же правилу, что и sendPhoto.
+
+|Аргумент|Тип данных|Описание|По умолчанию|
+|--|--|--|--|
+|$polls|array\|string|Ссылка опрос или массив|обязательно
+
+
+Пример:
+
+```
+$this->sendPoll('175343153_456239018');
+```
+
+___
+### 4.9. sendMarket(arrray|string $items, int $peerId = null):void
+
+Отправить товар(ы), не используя метод attachments. По тому же правилу, что и sendPhoto.
+
+|Аргумент|Тип данных|Описание|По умолчанию|
+|--|--|--|--|
+|$items|array\|string|Ссылка товар или массив|обязательно
+
+
+Пример:
+
+```
+$this->sendMarket('175343153_456239018');
+```
+
